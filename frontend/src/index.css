@@ -29,6 +29,7 @@ code {
   min-height: 170px;
   box-shadow: rgba(0, 0, 0, 0.125);
   white-space: pre-wrap;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.125);
 }
 
 .note-footer {
@@ -85,11 +86,13 @@ button:hover {
   padding: 5px;
   margin-bottom: 1em;
   border-radius: 12px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.125);
 }
 
 .search input {
   border: none;
   background-color: #ededed;
+  width: 90%;
 }
 
 .search input:focus {

@@ -54,6 +54,7 @@ const App = () => {
 
   return(
     <div className="notes-container">
+      <h1>Notizen</h1>
       <Search handleSearch={setSearchText}/>
       <NotesList 
         notes={notes.filter((note) => note.text.toLowerCase().includes(searchText) || note.title.toLowerCase().includes(searchText))} 
