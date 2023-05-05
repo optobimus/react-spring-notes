@@ -45,10 +45,15 @@ const App = () => {
     setNotes(newNotes);
   }
 
+  const deleteNode = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  }
+
 
   return(
     <div className="notes-container">
-      <NotesList notes={notes} handleAddNote={addNote}/>
+      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNode={deleteNode}/>
     </div>
   )
 }
