@@ -77,3 +77,21 @@ button:hover {
 .delete-icon:hover {
   transform: scale(1.2);
 }
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #ededed;
+  padding: 5px;
+  margin-bottom: 1em;
+  border-radius: 12px;
+}
+
+.search input {
+  border: none;
+  background-color: #ededed;
+}
+
+.search input:focus {
+  outline: none;
+}
