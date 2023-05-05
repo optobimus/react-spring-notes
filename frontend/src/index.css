@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.notes-container {
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 15px;
+}
+
 .note {
   display: flex;
   flex-direction: column;
@@ -31,6 +38,6 @@ code {
 
 .notes-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
