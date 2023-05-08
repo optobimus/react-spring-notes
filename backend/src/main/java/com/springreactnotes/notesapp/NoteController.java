@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController  // Bezeichnet die Klasse als API Controller, sodass sie HTTP-Anfragen bearbeiten kann
 @RequestMapping("/api/notes")
 @CrossOrigin(origins = "http://localhost:3000")     // Erlaube der React-App Zugriffe auf das Backend machen zu können
 public class NoteController {

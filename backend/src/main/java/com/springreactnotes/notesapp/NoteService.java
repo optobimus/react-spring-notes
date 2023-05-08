@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 @Service
 public class NoteService {
 
-    private List<Note> notes = new ArrayList<>();
+    private List<Note> notes = new ArrayList<>();       // Speichert alle Notizen in einer ArrayList ab
 
-    public NoteService() {
+    public NoteService() {      // Initialisiere mit 4 Standard-Notizen
         // Add 4 default notes
         notes.add(new Note(getRandomId(), "Erste Notiz", "Hallo, das ist die erste Notiz!", "02.04.2020"));
         notes.add(new Note(getRandomId(), "Einkaufsliste", "Eier, Bananen, Birnen, Speck,...", "13.12.2020"));
@@ -31,12 +31,11 @@ public class NoteService {
         String formattedDate = getFormattedDate(new Date());
         Note noteWithID = new Note(id, note.getTitle(), note.getText(), formattedDate);
         notes.add(noteWithID);
-        System.out.println(noteWithID);
         return noteWithID;
     }
 
     public void deleteNote(String id) {
-        notes = notes.stream().filter(note -> !note.getId().equals(id)).collect(Collectors.toList());
+        notes.removeIf(note -> note.getId().equals(id));
     }
 
     public void editNote(Note newNote) {
