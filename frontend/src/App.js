@@ -42,13 +42,29 @@ const addNote = async (title, text) => {
     
 };
 
-  const deleteNode = async (id) => {
+  const deleteNote = async (id) => {
     await fetch(`http://localhost:8080/api/notes/${id}`, {
       method: "DELETE",
     });
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
+
+  const editNote = async(id, title, text) => {
+    const newNote = {
+      id: id,
+      title: title,
+      text: text,
+    }
+    await fetch(`http://localhost:8080/api/notes/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newNote),
+    });
+    fetchNotes();
+  }
 
   return(
     <div className="notes-container">
@@ -59,7 +75,10 @@ const addNote = async (title, text) => {
       <NotesList 
         notes={Array.isArray(notes) ? notes.filter((note) => note.text?.toLowerCase().includes(searchText) || note.title?.toLowerCase().includes(searchText)) : []} 
         handleAddNote={addNote} 
-        handleDeleteNode={deleteNode}/>
+        handleDeleteNote={deleteNote}
+        handleEditNote={editNote}
+      />
+        
     </div>
   )
 }

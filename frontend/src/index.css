@@ -124,6 +124,11 @@ textarea::placeholder {
   color: white;
 }
 
+#add-title {
+  margin: 0;
+  height: 20px;
+}
+
 button {
   padding: 0.5rem;
   border: none;

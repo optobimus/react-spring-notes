@@ -3,7 +3,7 @@ import { AiFillEdit } from "react-icons/ai"
 
 import { useState } from "react";
 
-const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNode }) => {
+const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNote, handleEditNote }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [title, setTitle] = useState(initialTitle);
     const [text, setText] = useState(initialText);
@@ -13,7 +13,7 @@ const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNo
     };
 
     const handleSaveClick = () => {
-
+        handleEditNote(id, title, text);
         setIsEditing(false);
     };
 
@@ -38,7 +38,7 @@ const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNo
             )}
             <div className="note-footer">
                 <small>{date}</small>
-                <MdDeleteForever onClick={() => handleDeleteNode(id)} className="delete-icon" size="1.25em"/>
+                <MdDeleteForever onClick={() => handleDeleteNote(id)} className="delete-icon" size="1.25em"/>
             </div>
         </div>
     )

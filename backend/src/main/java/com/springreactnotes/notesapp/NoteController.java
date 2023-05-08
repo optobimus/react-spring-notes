@@ -22,8 +22,12 @@ public class NoteController {
 
     @PostMapping
     public Note addNote(@RequestBody Note note) {
-        System.out.println(note);
         return noteService.addNote(note);
+    }
+
+    @PutMapping("/{id}")
+    public void editNote(@RequestBody Note note) {
+        noteService.editNote(note);
     }
 
     @DeleteMapping("/{id}")

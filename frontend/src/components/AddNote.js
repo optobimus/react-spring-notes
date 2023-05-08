@@ -43,10 +43,11 @@ const AddNote = ({ handleAddNote }) => {
     return(
         <div className="note new">
             <textarea
-                className="add-title" 
+                id="add-title" 
                 onChange={handleChangeTitle} 
                 value={noteTitle}
                 cols="10"
+                rows="1"
                 placeholder="Titel der neuen Notiz">
                 </textarea>
             <textarea onChange={handleChangeText} onKeyDown={handleKeyDown} value={noteText} rows="8" cols="10" placeholder="Schreibe hier den Text der neuen Notiz..."></textarea>
