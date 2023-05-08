@@ -12,6 +12,32 @@ code {
     monospace;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #ededed;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.125);
+  width: 100%;
+}
+
+.search input {
+  border: none;
+  background-color: #ededed;
+  width: 90%;
+}
+
+.search input:focus {
+  outline: none;
+}
+
 .notes-container {
   max-width: 1080px;
   margin-right: auto;
@@ -23,7 +49,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #F6F797;
+  background-color: #fcca46;
   border-radius: 12px;
   padding: 1rem;
   min-height: 170px;
@@ -32,10 +58,23 @@ code {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.125);
 }
 
+.note h3 {
+  margin: 0;
+  overflow: hidden;
+}
+
+.note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
 .note-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
 }
 
 .notes-list {
@@ -45,17 +84,44 @@ code {
 }
 
 .note.new {
-  background-color: #99ffcc;
+  background-color: #619b8a;
+}
+
+.note input {
+  border-radius: 5px;
+  padding: .2em;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  max-width: 55%;
+}
+
+.note button {
+}
+
+.note textarea {
+  resize: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0.2em;
+  height: 50%;
+  margin-top: 1em;
 }
 
 .note.new textarea {
   border: 0;
   resize: none;
-  background-color: #99ffcc;
+  background-color: #619b8a;
+  color: white;
 }
 
 .note.new textarea:focus {
   outline: none;
+  color: white;
+}
+
+textarea::placeholder {
+  color: white;
 }
 
 button {
@@ -79,22 +145,11 @@ button:hover {
   transform: scale(1.2);
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  background-color: #ededed;
-  padding: 5px;
-  margin-bottom: 1em;
-  border-radius: 12px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.125);
+.edit-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
 }
 
-.search input {
-  border: none;
-  background-color: #ededed;
-  width: 90%;
-}
-
-.search input:focus {
-  outline: none;
+.edit-icon:hover {
+  transform: scale(1.2);
 }

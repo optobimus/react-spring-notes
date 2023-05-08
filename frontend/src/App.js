@@ -52,8 +52,10 @@ const addNote = async (title, text) => {
 
   return(
     <div className="notes-container">
-      <h1>Notizen</h1>
-      <Search handleSearch={setSearchText}/>
+      <div className="header">
+        <h1>Notizen</h1>
+        <Search handleSearch={setSearchText}/>
+      </div>
       <NotesList 
         notes={Array.isArray(notes) ? notes.filter((note) => note.text?.toLowerCase().includes(searchText) || note.title?.toLowerCase().includes(searchText)) : []} 
         handleAddNote={addNote} 
