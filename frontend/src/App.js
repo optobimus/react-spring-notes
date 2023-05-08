@@ -2,26 +2,22 @@ import { useEffect, useState } from "react";
 import NotesList from "./components/NotesList";
 import Search from "./components/Search";
 
-
 const App = () => {
+  const [searchText, setSearchText] = useState("");     // Notizen und Suchtext werden im State gespeichert
+  const [notes, setNotes] = useState([]);     
 
-  const [searchText, setSearchText] = useState("");
-
-  const [notes, setNotes] = useState([]);
-
-
-  useEffect(() => {
+  useEffect(() => {       // Bei jedem Neu-Rendern werden die Notizen erneut abgerufen
     fetchNotes();
   }, []);
 
-  const fetchNotes = async () => {
+  const fetchNotes = async () => {        // Abrufen aller Notizen
     const response = await fetch("http://localhost:8080/api/notes");
     const data = await response.json();
     console.log(data);
     setNotes(data);
   };
 
-const addNote = async (title, text) => {
+const addNote = async (title, text) => {        // Hinzufügen neuer Notizen
   try {
     const newNote = {
         title: title,
@@ -42,7 +38,7 @@ const addNote = async (title, text) => {
     
 };
 
-  const deleteNote = async (id) => {
+  const deleteNote = async (id) => {      // Löschen von Notizen
     await fetch(`http://localhost:8080/api/notes/${id}`, {
       method: "DELETE",
     });
@@ -50,7 +46,7 @@ const addNote = async (title, text) => {
     setNotes(newNotes);
   };
 
-  const editNote = async(id, title, text) => {
+  const editNote = async(id, title, text) => {      // Notizen bearbeiten
     const newNote = {
       id: id,
       title: title,
@@ -73,7 +69,7 @@ const addNote = async (title, text) => {
         <Search handleSearch={setSearchText}/>
       </div>
       <NotesList 
-        notes={Array.isArray(notes) ? notes.filter((note) => note.text?.toLowerCase().includes(searchText) || note.title?.toLowerCase().includes(searchText)) : []} 
+        notes={Array.isArray(notes) ? notes.filter((note) => note.text?.toLowerCase().includes(searchText) || note.title?.toLowerCase().includes(searchText)) : []}     // Nur Notizen welche den Suchtext entsprechen werden angezeigt
         handleAddNote={addNote} 
         handleDeleteNote={deleteNote}
         handleEditNote={editNote}

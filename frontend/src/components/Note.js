@@ -4,7 +4,7 @@ import { AiFillEdit } from "react-icons/ai"
 import { useState } from "react";
 
 const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNote, handleEditNote }) => {
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);      // State, um herauszufinden ob gerade eine Notiz bearbeitet wird oder nicht
     const [title, setTitle] = useState(initialTitle);
     const [text, setText] = useState(initialText);
 
@@ -19,7 +19,7 @@ const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNo
 
     return(
         <div className="note">
-            { isEditing ? (
+            { isEditing ? (         // Konditionales Rendern, um je nach Bearbeitungsstatus verschiedenen Inhalt zu rendern
                 <>
                      <div className="note-header">
                         <input className="title-input" value={title} onChange={(e) => setTitle(e.target.value)} />

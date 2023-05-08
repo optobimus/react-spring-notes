@@ -3,7 +3,7 @@ import { useState } from "react";
 const AddNote = ({ handleAddNote }) => {
     const [noteText, setNoteText] = useState("");
     const [noteTitle, setNoteTitle] = useState("");
-    const [characterCount, setCharacterCount] = useState(200);
+    const [characterCount, setCharacterCount] = useState(200);         // Übrige Zeichen speichern, um nicht mehr als 200 Zeichen zu erlauben
 
 
     const handleChangeTitle = (e) => {
@@ -22,7 +22,7 @@ const AddNote = ({ handleAddNote }) => {
     };
     
     const handleKeyDown = (e) => {
-        if (e.key === 'Backspace' || e.key === 'Delete') {
+        if (e.key === 'Backspace' || e.key === 'Delete') {      // Falls Zeichen voll sind erlaube nur Löschen oder Backspace Taste
             const newText = e.target.value;
             const newCount = 200 - newText.length;
             setCharacterCount(newCount);
@@ -31,7 +31,7 @@ const AddNote = ({ handleAddNote }) => {
       
 
     const handleClickButton = (e) => {
-        if (noteText.trim().length === 0 || noteTitle.trim().length === 0) {
+        if (noteText.trim().length === 0 || noteTitle.trim().length === 0) {            // Sichergehen, dass die neue Notiz auch einen Inhalt hat
             alert("Titel und Text der neuen Notiz müssen ausgefüllt werden!");
         } else {
             handleAddNote(noteTitle, noteText);
