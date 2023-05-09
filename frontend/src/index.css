@@ -56,6 +56,11 @@ code {
   box-shadow: rgba(0, 0, 0, 0.125);
   white-space: pre-wrap;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.125);
+  transition: 0.2s transform;
+}
+
+.note:hover {
+  transform: scale(1.015);
 }
 
 .note h3 {

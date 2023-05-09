@@ -1,12 +1,17 @@
 import { MdDeleteForever } from "react-icons/md"
 import { AiFillEdit } from "react-icons/ai"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNote, handleEditNote }) => {
     const [isEditing, setIsEditing] = useState(false);      // State, um herauszufinden ob gerade eine Notiz bearbeitet wird oder nicht
     const [title, setTitle] = useState(initialTitle);
     const [text, setText] = useState(initialText);
+
+    useEffect(() => {
+        setTitle(initialTitle);
+        setText(initialText);
+    }, [initialTitle, initialText]);
 
     const handleEditClick = () => {
         setIsEditing(true);
@@ -38,7 +43,7 @@ const Note = ({ id, title: initialTitle, text: initialText, date, handleDeleteNo
             )}
             <div className="note-footer">
                 <small>{date}</small>
-                <MdDeleteForever onClick={() => handleDeleteNote(id)} className="delete-icon" size="1.25em"/>
+                { isEditing ? null : <MdDeleteForever onClick={() => handleDeleteNote(id)} className="delete-icon" size="1.25em"/> }
             </div>
         </div>
     )

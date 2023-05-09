@@ -46,21 +46,32 @@ const addNote = async (title, text) => {        // Hinzufügen neuer Notizen
     setNotes(newNotes);
   };
 
-  const editNote = async(id, title, text) => {      // Notizen bearbeiten
+  const editNote = async (id, title, text) => { // Notizen bearbeiten
     const newNote = {
       id: id,
       title: title,
       text: text,
-    }
-    await fetch(`http://localhost:8080/api/notes/${id}`, {
+    };
+    const response = await fetch(`http://localhost:8080/api/notes/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newNote),
     });
-    fetchNotes();
-  }
+    
+    const updatedNote = await response.json();
+    
+    const updatedNotes = notes.map((note) => {
+      if (note.id === id) {
+        return updatedNote;
+      }
+      return note;
+    });
+    
+    setNotes(updatedNotes);
+  };
+  
 
   return(
     <div className="notes-container">
