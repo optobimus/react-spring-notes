@@ -2,7 +2,7 @@
 
 
 
-## Kurzbeschreibung
+## Beschreibung
 
 Eine Notizen-Applikation zur Verwaltung von Notizen, erstellt mit React im Frontend und Java mit Spring Boot als Backend.
 
