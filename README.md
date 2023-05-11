@@ -7,8 +7,9 @@ Eine Notizen-Applikation zur Verwaltung von Notizen, erstellt mit React im Front
 ## Demonstration
 
 Hier sehen Sie eine Demo der Applikation. Der Benutzer sieht Anfangs vier vorgefertigte Notizen und hat die Möglichkeit, diese zu bearbeiten znd zu löschen sowie neue hinzuzufügen.
-
 In der Suchleiste oben kann man Begriffe eingeben, welche in den jeweiligen Titeln und Textinhalten der Notizen gesucht wird.
+
+![ezgif com-video-to-gif](https://github.com/optobimus/react-spring-notes/assets/113835194/fedeb80d-d050-4849-82d0-bae9d8032e75)
 
 ## Funktionen
 
