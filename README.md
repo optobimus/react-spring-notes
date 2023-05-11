@@ -14,23 +14,16 @@ In der Suchleiste oben kann man Begriffe eingeben, welche in den jeweiligen Tite
 ## Funktionen
 
   * Verwaltung der Notizen im Backend
-
-  * Erstellen, bearbeiten und Löschen von Notizen
-
+  * Erstellen, Bearbeiten und Löschen von Notizen
+  * Suche nach Titel oder Notiztext
   * responsives Design, anpassbar an alle Bildschirmgrößen durch CSS Grid
-
   * Notizen suchen und filtern
 
 ##  Verwendete Technologien
 
   * React
-
   * Java / Spring Boot
-
   * CSS
-
   * Git
-
   * ESLint
-
   * Webpack
